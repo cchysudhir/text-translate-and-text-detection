@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Services Start -->
+<section id="services" class="services-section section-space-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="section-title">
+                            <h2>Welcome to Homepage</h2>
+                            <div class="divider dark">
+                                <i class="fa fa-commenting" aria-hidden="true"></i>
+                            </div>
+                            <p>Choose any one option you'd like me to use</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="home-btn">
+
+                        <form action="{{url_for('imagetospeechtest')}}" method="get">
+                            <button class="file-upload-btn btn-block" type="submit"
+                                href="{{url_for('imagetospeechtest')}}">upload</button>
+                        </form>
+
+                        <p class="text-center text-bold"><b>OR</b></p>
+
+                        <form action="{{url_for('camera')}}">
+                            <button class="file-upload-btn btn-block" type="submit"
+                                >camera</button>
+                        </form>
+
+
+                   
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+{% endblock%}

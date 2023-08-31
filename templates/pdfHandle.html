@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Services Start -->
+<section id="services" class="services-section section-space-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="section-title">
+                    <h2>Image to Speech</h2>
+                    <div class="divider dark">
+                        <i class="fa fa-commenting" aria-hidden="true"></i>
+                    </div>
+                    <p>Upload the Image you want to convert</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <div class="file-upload">
+                <!-- <form action="{{url_for('imagetospeechtest')}}" method="post" enctype="multipart/form-data">
+                    <input type="file" class="custom-file-input text-center file-upload-btn" name="imageFile">
+                    <select name="lang_list">
+                        {% for key,value in data.items() %}
+                        <option value="{{key}}">{{value}}</option>
+                        {%endfor%}
+                    </select>
+                   <p>choose language</p>
+                    <button class="file-upload-btn " type="submit"
+                        onclick="$('.file-upload-input').trigger( 'click' )">submit</button>
+
+                </form>
+ -->
+
+
+                <div class="form-group">
+                    <label class="text-center">Converted Text : </label>
+                    <textarea class="form-control textl" rows="5" id="comment">{{extracted_text}}</textarea>
+                </div>
+                {% if ado %}
+                <audio controls class="btn-block">
+                    <source src="{{url_for('static',filename='output.mp3')}}" type="audio/mpeg">
+                  </audio>
+                {% elif pdfaudio%}
+                <audio controls class="btn-block">
+                    <source src="{{url_for('static',filename='convert.mp3')}}" type="audio/mpeg">
+                  </audio> 
+                {% else %}
+                    <p> Please choose a file first to get the audio output </p>
+                {% endif %}
+
+                
+                <form action="{{url_for('home')}}" method="post" class="my-3">
+                    <button  class="file-upload-btn  cancel" style="margin-top: 12px;">
+                        cancel</button>
+                </form>
+              
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock%}
